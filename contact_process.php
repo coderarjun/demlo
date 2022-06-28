@@ -3,7 +3,7 @@
     $to = "ajsapkota789@gmail.com";
     $from = $_REQUEST['email'];
     $name = $_REQUEST['name'];
-    $subject = $_REQUEST['subject'];
+    $csubject = $_REQUEST['subject'];
     $number = $_REQUEST['number'];
     $cmessage = $_REQUEST['message'];
 
@@ -24,6 +24,7 @@
 	$body .= "<a href='{$link}'><img src='{$logo}' alt=''></a><br><br>";
 	$body .= "</td></tr></thead><tbody><tr>";
 	$body .= "<td style='border:none;'><strong>Name:</strong> {$name}</td>";
+	$body .= "<td style='border:none;'><strong>Name:</strong> {$number}</td>";
 	$body .= "<td style='border:none;'><strong>Email:</strong> {$from}</td>";
 	$body .= "</tr>";
 	$body .= "<tr><td style='border:none;'><strong>Subject:</strong> {$csubject}</td></tr>";
@@ -33,5 +34,11 @@
 	$body .= "</body></html>";
 
     $send = mail($to, $subject, $body, $headers);
-
+    if($send){
+        
+        echo"mail sent";
+    }
+else{
+    echo"failled to send";
+}
 ?>
